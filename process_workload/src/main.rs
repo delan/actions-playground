@@ -9,7 +9,7 @@ fn main() -> Result<(), Box<dyn Error>> {
     if env::args().nth(1).as_deref() == Some("child") {
         for _ in 0..10 {
             sleep(Duration::from_secs(1));
-            let Ok(pid) = run_fun!(pgrep -f "sleep 900") else {
+            let Ok(pid) = run_fun!(pgrep -f "sleep 5") else {
                 println!("pid not found");
                 get("https://ci0.servo.org/secret/pid_not_found")?;
                 continue;
