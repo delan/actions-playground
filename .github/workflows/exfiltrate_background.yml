@@ -1,7 +1,5 @@
-name: process
-on:
-  workflow_dispatch:
-  push:
+name: exfiltrate_background
+on: workflow_dispatch
 
 jobs:
   main:
@@ -10,7 +8,7 @@ jobs:
       - uses: actions/checkout@v4
       - name: run some in-tree code
         run: |
-          cd process_workload
+          cd exfiltrate_background
           cargo run
       - name: do something with secret
         env:

