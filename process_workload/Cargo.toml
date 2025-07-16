@@ -1,0 +1,8 @@
+[package]
+name = "process_workload"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+cmd_lib = "1.9.6"
+reqwest = { version = "0.12.22", features = ["blocking", "rustls-tls"], default-features = false }

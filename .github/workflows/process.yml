@@ -1,0 +1,19 @@
+name: process
+on:
+  workflow_dispatch:
+  push:
+
+jobs:
+  main:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: run some in-tree code
+        run: |
+          cd process_workload
+          cargo run
+      - name: do something with secret
+        env:
+          MY_SECRET: ${{ secrets.MY_SECRET }}
+        run: |
+          sleep 5
