@@ -1,7 +1,7 @@
 github actions playground
 =========================
 
-# exfiltrate secret with background process
+## exfiltrate secret with background process
 
 - <https://github.com/delan/actions-playground/actions/workflows/exfiltrate_background.yml>
 - <https://github.com/delan/actions-playground/actions/runs/16309745444/job/46062882688#step:3:236>
